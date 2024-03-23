@@ -167,7 +167,7 @@
                 color:white;
                 position:absolute;
                 left:34%;
-                top:-3%;
+                top:3%;
             }
             #small {
                 background-color:white;
@@ -234,8 +234,8 @@
                 color:white;
                 font-size:15px;
                 position:absolute;
-                left:3%;
-                top:-3%;
+                left:31%;
+                top:3%;
             }
             #dark {
                 position:absolute;
@@ -306,10 +306,10 @@
             #canvas {
                 position:absolute;
                 top:-13%;
-                left:21.3%;
+                left:20.8%;
                 right:20%;
                 bottom:20%;
-                width:58.6%;
+                width:59%;
                 height:92.9%;
                 background-color:white;
                 
@@ -378,34 +378,146 @@
         <script>
             var color = "black";
             var size = "10px";
-            var background = "white"
-            // use border radius for shape
-            var shape = "0px"
+            // use border 1/2 size
+            var borderR = "15px"
             
             var mouseX = 0 + "px"
             var mouseY = 0 + "px"
             
+			var down = false
+			
             //draw function
-            var canvas = document.body.getElementById("canvas")
-            canvas.style.backgroundcolor = background
-            
-            canvas.addEventListener("mouseDown", function(event){
+            var intervalId; // Variable to store the interval ID
+			
+			var canvas = document.getElementById("canvas")
+			
+            canvas.addEventListener("mousedown", function painting(event){
+				down = true
+				
                 var mouseX = event.clientX
                 var mouseY = event.clientY
-                
-                console.log(event)
-                
-                var paint = canvas.createElement("span")
-                paint.style.backgroundcolor = color
+				
+				console.log(event)
+				
+                var paint = document.createElement("span")
+                paint.style.background = color
                 paint.style.width = size
                 paint.style.height = size
                 paint.style.position = "absolute"
                 paint.style.left = mouseX + "px"
                 paint.style.top = mouseY + "px"
+				paint.style.borderRadius = borderR
                 
-                var paintDiv = document.body.getElementById("paint")
-                paint.appendChild(paint)
+                var paintDiv = document.getElementById("paint")
+                paintDiv.appendChild(paint)
             })
+			
+			canvas.addEventListener("mousemove", function continuePainting(event) {
+			if (down) {
+				var mouseX = event.clientX;
+				var mouseY = event.clientY;
+
+				var paint = document.createElement("span");
+				paint.style.background = color;
+				paint.style.width = size;
+				paint.style.height = size;
+				paint.style.position = "absolute";
+				paint.style.left = mouseX + "px";
+				paint.style.top = mouseY + "px";
+				paint.style.borderRadius = borderR;
+
+				var paintDiv = document.getElementById("paint");
+				paintDiv.appendChild(paint);
+				}
+			});
+			document.addEventListener("mouseup", function stopPainting() {
+				down = false;
+			});
+			//bottom button functions
+			var redbutton = document.getElementById("red-button").addEventListener("click", function(){
+				color = "red"
+			})
+			var greenbutton = document.getElementById("green-button").addEventListener("click", function(){
+				color = "green"
+			})
+			var bluebutton = document.getElementById("blue-button").addEventListener("click", function(){
+				color = "blue"
+			})
+			var brownbutton = document.getElementById("brown-button").addEventListener("click", function(){
+				color = "brown"
+			})
+			var blackbutton = document.getElementById("black-button").addEventListener("click", function(){
+				color = "black"
+			})
+			var whitebutton = document.getElementById("white-button").addEventListener("click", function(){
+				color = "white"
+			})
+			var yellowbutton = document.getElementById("yellow-button").addEventListener("click", function(){
+				color = "yellow"
+			})
+			var orangebutton = document.getElementById("orange-button").addEventListener("click", function(){
+				color = "orange"
+			})
+			var greybutton = document.getElementById("grey-button").addEventListener("click", function(){
+				color = "grey"
+			})
+			var purplebutton = document.getElementById("purple-button").addEventListener("click", function() {
+				color = "purple"
+			})
+			var pinkbutton = document.getElementById("pink-button").addEventListener("click", function() {
+				color = "pink"
+			})
+			var limebutton = document.getElementById("lime-button").addEventListener("click", function() {
+				color = "lime"
+			})
+			var cyanbutton = document.getElementById("cyan-button").addEventListener("click", function() {
+				color = "cyan"
+			})
+			var indigobutton = document.getElementById("indigo-button").addEventListener("click", function() {
+				color = "indigo"
+			})
+			var maroonbutton = document.getElementById("maroon-button").addEventListener("click", function() {
+				color = "maroon"
+			})
+			var turquoisebutton = document.getElementById("turquoise-button").addEventListener("click", function() {
+				color = "rgb(40, 161, 137)"
+			})
+			
+			//left button functions
+			var darkBackground = document.getElementById("dark").addEventListener("click", function() {
+				canvas.style.background = "black"
+			})
+			var lightBackground = document.getElementById("light").addEventListener("click", function() {
+				canvas.style.background = "white"
+			})
+			var skyBackground = document.getElementById("sky").addEventListener("click", function() {
+				canvas.style.background = "cyan"
+			})
+			var nightBackground = document.getElementById("night").addEventListener("click",function() {
+				canvas.style.background = "indigo"
+			})
+			
+			var circleButton = document.getElementById("circle").addEventListener("click", function() {
+				borderR = "15px"
+			})
+			var squareButton = document.getElementById("square").addEventListener("click", function() {
+				borderR = 0 + "px"
+			})
+			
+			//right buttons functions
+			var smallButton = document.getElementById("small").addEventListener("click", function() {
+				size = "10px"
+			})
+			var mediumButton = document.getElementById("medium").addEventListener("click", function() {
+				size = "20px"
+			})
+			var largeButton = document.getElementById("large").addEventListener("click", function() {
+				size = "30px"
+			})
+			
+			var clearButton = document.getElementById("clear").addEventListener("click", function() {
+				document.getElementById("paint").innerHTML = ""
+			})
         </script>
     </body>
 </html>
