@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Paint</title>
+        <style>
+            #left {
+                background-color:purple;
+                position:absolute;
+                top:0;
+                height:100%;
+                width:20%;
+            }
+            #right {
+                background-color:purple;
+                position:absolute;
+                left:80%;
+                top:0;
+                height:100%;
+                width:20%;
+            }
+            #bottom{
+                background-color:purple;
+                position:absolute;
+                top:80%;
+                height:20%;
+                width:100%;
+            }
+            #COLOR {
+                color: rgb(255,255,255);
+                position:absolute;
+                left:45%;
+                top:-20%;
+            }
+            #red-button {
+                background-color:red;
+                position:absolute;
+                left:2%;
+                top:20%;
+                width:10%;
+                height:40%;
+            }
+            #blue-button {
+                background-color:blue;
+                position:absolute;
+                left:14%;
+                top:20%;
+                width:10%;
+                height:40%;
+            }
+            #green-button {
+                background-color:green;
+                position:absolute;
+                left:26%;
+                top:20%;
+                width:10%;
+                height:40%;
+            }
+            #brown-button {
+                background-color:brown;
+                position:absolute;
+                left:38%;
+                top:20%;
+                width:10%;
+                height:40%;
+                font-size:12px;
+            }
+            #black-button {
+                color:white;
+                background-color:black;
+                position:absolute;
+                left:50%;
+                top:20%;
+                width:10%;
+                height:40%;
+            }
+            #white-button {
+                background-color:white;
+                position:absolute;
+                left:62%;
+                top:20%;
+                width:10%;
+                height:40%;
+            }
+            #yellow-button {
+                background-color:yellow;
+                position:absolute;
+                left:74%;
+                top:20%;
+                width:10%;
+                height:40%;
+            }
+            #orange-button {
+                background-color:orange;
+                position:absolute;
+                left:86%;
+                top:20%;
+                width:10%;
+                height:40%;
+            }
+            #grey-button {
+                background-color:grey;
+                position:absolute;
+                left:2%;
+                top:60%;
+                width:10%;
+                height:40%;
+            }
+            #purple-button {
+                background-color:purple;
+                position:absolute;
+                left:14%;
+                top:60%;
+                width:10%;
+                height:40%;
+            }
+            #pink-button {
+                background-color:pink;
+                position:absolute;
+                left:26%;
+                top:60%;
+                height:40%;
+                width:10%;
+            }
+            #lime-button {
+                background-color:lime;
+                position:absolute;
+                left:38%;
+                top:60%;
+                height:40%;
+                width:10%;
+            }
+            #cyan-button {
+                background-color:cyan;
+                position:absolute;
+                left:50%;
+                top:60%;
+                height:40%;
+                width:10%;
+            }
+            #indigo-button {
+                background-color:indigo;
+                position:absolute;
+                left:62%;
+                top:60%;
+                height:40%;
+                width:10%;
+            }
+            #maroon-button {
+                background-color:maroon;
+                position:absolute;
+                left:74%;
+                top:60%;
+                height:40%;
+                width:10%;
+            }
+            #turquoise-button {
+                background-color:rgb(40, 161, 137);
+                position:absolute;
+                left:86%;
+                top:60%;
+                height:40%;
+                width:10%;
+                font-size:10px;
+            }
+            #SIZE {
+                color:white;
+                position:absolute;
+                left:34%;
+                top:-3%;
+            }
+            #small {
+                background-color:white;
+                position:absolute;
+                top:7%;
+            }
+            #smallRep {
+                background-color:black;
+                position:absolute;
+                left:66%;
+                top:8%;
+                width:10px;
+                height:10px;
+                border-radius:5px;
+            }
+            #medium {
+                background-color:white;
+                position:absolute;
+                top:14%;
+            }
+            #mediumRep {
+                background-color:black;
+                position:absolute;
+                left:66%;
+                top:15%;
+                width:20px;
+                height:20px;
+                border-radius:10px;
+            }
+            #large {
+                background-color:white;
+                position:absolute;
+                top:23%;
+            }
+            #largeRep {
+                background-color:black;
+                position:absolute;
+                top:22%;
+                left:66%;
+                width:30px;
+                height:30px;
+                border-radius:15px;
+            }
+            #CLEAR {
+                color:white;
+                position:absolute;
+                top:29%;
+                left:26%;
+            }
+            #clear {
+                background-color:rgb(173, 60, 16);
+                position:absolute;
+                top:41%;
+                left:26%;
+                height:20%;
+            }
+            #warning {
+                color:white;
+                position:absolute;
+                top:60%;
+                left:17%;
+            }
+            #BACKGROUND {
+                color:white;
+                font-size:15px;
+                position:absolute;
+                left:3%;
+                top:-3%;
+            }
+            #dark {
+                position:absolute;
+                background-color:black;
+                left:25%;
+                top:7%;
+                width:50%;
+                height:5%;
+            }
+            #light {
+                position:absolute;
+                background-color:white;
+                left:25%;
+                top:14%;
+                width:50%;
+                height:5%;
+            }
+            #sky {
+                position:absolute;
+                background-color:cyan;
+                left:25%;
+                top:21%;
+                width:50%;
+                height:5%;
+            }
+            #night {
+                position:absolute;
+                background-color:indigo;
+                left:25%;
+                top:28%;
+                width:50%;
+                height:5%;
+            }
+            #SHAPE {
+                position:absolute;
+                color:white;
+                left:26%;
+                top:35%;
+            }
+            #circle {
+                background-color:white;
+                position:absolute;
+                top:50%;
+            }
+            #circleRep {
+                background-color:black;
+                position:absolute;
+                top:49%;
+                left:58%;
+                width:30px;
+                height:30px;
+                border-radius:15px;
+            }
+            #square {
+                background-color:white;
+                position:absolute;
+                top:66%;
+            }
+            #squareRep {
+                background-color:black;
+                position:absolute;
+                top:65%;
+                left:59%;
+                width:30px;
+                height:30px;
+                border-radius:0px;
+            }
+            #canvas {
+                position:absolute;
+                top:-13%;
+                left:21.3%;
+                right:20%;
+                bottom:20%;
+                width:58.6%;
+                height:92.9%;
+                background-color:white;
+                
+            }
+        </style>
+    </head>
+    <body>
+    <!--Layout-->
+        <!--Left-->
+        <div id = "left">
+            <span id = "BACKGROUND"><p><strong>BACKGROUND:</strong></p></span>
+            <button id = "dark"></button>
+            <button id = "light"></button>
+            <button id = "sky"></button>
+            <button id = "night"></button>
+            
+            <span id = "SHAPE"><p><strong>SHAPE:</strong></p></span>
+            <button id = "circle">Circle</button>
+            <span id = "circleRep"></span>
+            <button id = "square">Square</button>
+            <span id = "squareRep"></span>
+        </div>
+        <!--Right-->
+        <div id = "right">
+            <span id = "SIZE"><p><strong>SIZE:</strong></p></span>
+            
+            <button id = "small">Small</button>
+            <span id = "smallRep"></span>
+            
+            <button id = "medium">Medium</button>
+            <span id = "mediumRep"></span>
+            
+            <button id = "large">Large</button>
+            <span id = "largeRep"></span>
+            
+            
+            <span id = "CLEAR"><p><strong>CLEAR:</strong></p></span>
+            <button id = "clear">CLEAR</button>
+            <span id = "warning"><p>WARNING: will delete all paint</p></span>
+        </div>
+        <!--Bottom-->
+        <div id = "bottom">
+            <span id = "COLOR"><p><strong>COLOR:</strong></p></span>
+            <button id = "red-button">RED</button>
+            <button id = "blue-button">BLUE</button>
+            <button id = "green-button">GREEN</button>
+            <button id = "brown-button">BROWN</button>
+            <button id = "black-button">BLACK</button>
+            <button id = "white-button">White</button>
+            <button id = "yellow-button">Yellow</button>
+            <button id = "orange-button">Orange</button>
+            <button id = "grey-button">Grey</button>
+            <button id = "purple-button">Purple</button>
+            <button id = "pink-button">Pink</button>
+            <button id = "lime-button">Lime</button>
+            <button id = "cyan-button">Cyan</button>
+            <button id = "indigo-button">Indigo</button>
+            <button id = "maroon-button">Maroon</button>
+            <button id = "turquoise-button">Turquoise</button>
+        </div>
+    <!--Canvas-->
+        <canvas id = "canvas"></canvas>
+        <!--Paint-->
+        <div id = "paint"></div>
+    <!--Script-->
+        <script>
+            var color = "black";
+            var size = "10px";
+            var background = "white"
+            // use border radius for shape
+            var shape = "0px"
+            
+            var mouseX = 0 + "px"
+            var mouseY = 0 + "px"
+            
+            //draw function
+            var canvas = document.body.getElementById("canvas")
+            canvas.style.backgroundcolor = background
+            
+            canvas.addEventListener("mouseDown", function(event){
+                var mouseX = event.clientX
+                var mouseY = event.clientY
+                
+                console.log(event)
+                
+                var paint = canvas.createElement("span")
+                paint.style.backgroundcolor = color
+                paint.style.width = size
+                paint.style.height = size
+                paint.style.position = "absolute"
+                paint.style.left = mouseX + "px"
+                paint.style.top = mouseY + "px"
+                
+                var paintDiv = document.body.getElementById("paint")
+                paint.appendChild(paint)
+            })
+        </script>
+    </body>
+</html>
